@@ -16,6 +16,25 @@ repositories {
     // Use 'jcenter' for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
+}
+
+// Additional source declarations
+sourceSets {
+    main {
+        resources {
+            // set src/main/resources as a source directory
+            srcDir 'resources'
+        }
+    }
+}
+
+// Make eclipse download Javadocs for code hints and sources for debugging!
+eclipse {
+    classpath {
+        downloadJavadoc = true
+        downloadSources = true
+    }
 }
 
 // In this section you declare the dependencies for your production and test code
@@ -23,9 +42,12 @@ dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.21'
 
-	// Spark is the framework this project is testing
-	compile "com.sparkjava:spark-core:2.5.4"
-
+    // Spark is the framework this project is testing
+    compile 'com.sparkjava:spark-core:2.5.4'
+    compile 'com.sparkjava:spark-template-handlebars:2.3'
+    compile 'com.sparkjava:spark-template-velocity:2.3'
+    compile 'org.projectlombok:lombok:1.16.12'
+    
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
